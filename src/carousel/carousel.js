@@ -14,12 +14,13 @@ import {
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
+
 export default () => (
   <CarouselProvider
-    visibleSlides={4}
-    totalSlides={6}
-    naturalSlideWidth={400}
-    naturalSlideHeight={500}
+    visibleSlides={5}
+    totalSlides={11}
+    naturalSlideWidth={250}
+    naturalSlideHeight={350}
   >
 
     <Slider>
@@ -40,6 +41,21 @@ export default () => (
       </Slide>
       <Slide index={5}>
         <Image src="./assets/donnieDarko.jpg" />
+      </Slide>
+      <Slide index={6}>
+        <Image src="/assets/arrival.jpg" />
+      </Slide>
+      <Slide index={7}>
+        <Image src="/assets/babyDriver.jpg" />
+      </Slide>
+      <Slide index={8}>
+        <Image src="./assets/tmnt.jpg" />
+      </Slide>
+      <Slide index={9}>
+        <Image src="./assets/cars.jpg" />
+      </Slide>
+      <Slide index={10}>
+        <Image src="./assets/inception.jpg" />
       </Slide>
     </Slider>
     <ButtonFirst>First</ButtonFirst>

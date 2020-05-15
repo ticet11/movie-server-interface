@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Carousel from './carousel/carousel';
+import Body from './Body/body'
 
 
 
 function App() {
   return (
     <div className="App">
-      <Carousel />
+      <Body />
     </div>
   );
 }
