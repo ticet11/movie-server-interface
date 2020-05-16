@@ -1,10 +1,8 @@
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/header"
-import { render } from 'react-dom';
-import Body from './Body/body'
+import Body from './components/Body/body'
 
 
 class App extends Component {

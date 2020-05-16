@@ -17,7 +17,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 export default () => (
   <CarouselProvider
-    visibleSlides={5}
+    visibleSlides={6}
     totalSlides={11}
     naturalSlideWidth={250}
     naturalSlideHeight={350}
