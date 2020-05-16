@@ -6,7 +6,7 @@ import {
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./components/header";
-import Body from "./Body/body";
+import Body from "./components/Body/body";
 import AddMovie from "./pages/AddMovie";
 
 class App extends Component {
