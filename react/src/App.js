@@ -1,24 +1,37 @@
-
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from "./components/header"
-import { render } from 'react-dom';
-import Body from './Body/body'
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+} from "react-router-dom";
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./components/header";
+import Body from "./Body/body";
+import AddMovie from "./pages/AddMovie";
 
 class App extends Component {
-  render() {
-  return (
-    <div className="App">
-
-      <Header/>
-
-      <Body />
-
-    </div>
-  );
- }
+    render() {
+        return (
+            <Router>
+                <div className="App">
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route
+                            exact
+                            path="/addmovie"
+                            component={AddMovie}
+                        />
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
+const Home = () => (
+    <div>
+        <Body />
+    </div>
+);
 export default App;
