@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/movies/5ebf0d3656ca3814ccb17ec9
+DELETE http://localhost:3000/movies/5ec02121a19cd34b24c31bfe
 
 ###
 
