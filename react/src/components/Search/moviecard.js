@@ -5,6 +5,11 @@ import '../../Style/card.css';
 export default function MovieCard({ movie }) {
 	return (
 		<div className='card'>
+			<div className='dbButton'>
+				<button className='Button' type='submit'>
+					Add Movie to Database
+				</button>
+			</div>
 			<img
 				className='card--image'
 				alt=''
