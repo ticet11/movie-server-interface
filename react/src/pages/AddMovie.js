@@ -1,27 +1,13 @@
-import React from "react";
+import React from 'react';
+
+import SearchMovies from '../components/Search/searchmovies';
 
 export default function AddMovie() {
-    return (
-        <React.Fragment>
-            <div>
-                <form>
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="Movie Title"
-                    /> {' '}
-                    <input
-                        type="text"
-                        name="releaseDate"
-                        placeholder="Year of Release"
-                    /> {' '}
-                    <input
-                        type="submit"
-                        value="Submit"
-                        className="btn"
-                    />
-                </form>
-            </div>
-        </React.Fragment>
-    );
+	return (
+		<React.Fragment>
+			<div>
+				<SearchMovies />
+			</div>
+		</React.Fragment>
+	);
 }
