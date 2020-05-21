@@ -5,9 +5,13 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    movie_post: {
+        type: String,
+        required: true
+    },
     release_date: {
         type: Number,
-        required: false
+        required: true
     },
     runtime: {
         type: Number,
