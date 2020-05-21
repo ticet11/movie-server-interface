@@ -3,6 +3,10 @@
 	max-width: 1000px;
 	padding: 40px;
 }
+.dbButton {
+	display: flex;
+	justify-content: right;
+}
 
 .title {
 	font-size: 4.4rem;
@@ -39,6 +43,10 @@
 }
 .button:hover {
 	background-color: #000000d9;
+}
+.dbButton {
+	display: flex;
+	justify-content: right;
 }
 
 @media (min-width: 786px) {
