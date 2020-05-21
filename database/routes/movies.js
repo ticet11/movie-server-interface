@@ -20,9 +20,13 @@ router.get("/:id", getMovie, (req, res) => {
 // Creating One
 router.post("/", async (req, res) => {
     const movie = new Movie({
-        title: req.body.title,
         genre: req.body.genre,
-        releaseDate: req.body.releaseDate,
+        movie_poster: req.body.movie_poster,
+        release_date: req.body.release_date,
+        runtime: req.body.runtime,
+        tagline: req.body.tagline,
+        title: req.body.title,
+        vote_average: req.body.vote_average,
     });
 
     try {
@@ -36,29 +40,29 @@ router.post("/", async (req, res) => {
 // Updating One
 router.patch("/:id", getMovie, async (req, res) => {
     if (req.body.title != null) {
-        res.movie.title = req.body.title
+        res.movie.title = req.body.title;
     }
     if (req.body.genre != null) {
-        res.movie.genre = req.body.genre
+        res.movie.genre = req.body.genre;
     }
     if (req.body.releaseDate != null) {
-        res.movie.releaseDate = req.body.releaseDate
+        res.movie.releaseDate = req.body.releaseDate;
     }
     try {
-        const updatedMovie = await res.movie.save()
-        res.json(updatedMovie)
+        const updatedMovie = await res.movie.save();
+        res.json(updatedMovie);
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.status(400).json({ message: err.message });
     }
 });
 
 // Deleting One
 router.delete("/:id", getMovie, async (req, res) => {
     try {
-        await res.movie.remove()
-        res.json({ message: "Deleted movie."})
+        await res.movie.remove();
+        res.json({ message: "Deleted movie." });
     } catch (err) {
-        res.status(500).json({ message: err.message})
+        res.status(500).json({ message: err.message });
     }
 });
 

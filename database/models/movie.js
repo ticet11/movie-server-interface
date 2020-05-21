@@ -5,7 +5,7 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    movie_post: {
+    movie_poster: {
         type: String,
         required: true
     },
