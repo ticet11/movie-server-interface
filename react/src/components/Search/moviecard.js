@@ -1,30 +1,68 @@
-import React from 'react';
+import React from "react";
 
-import '../../Style/card.css';
+import "../../Style/card.css";
 
 export default function MovieCard({ movie }) {
-	return (
-		<div className='card'>
-			<div className='dbButton'>
-				<button className='Button' type='submit'>
-					Add Movie to Database
-				</button>
-			</div>
-			<img
-				className='card--image'
-				alt=''
-				src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
-			/>
-			<div className='card--content'>
-				<h3 className='card--title'>{movie.title}</h3>
-				<p>
-					<small>RELEASE DATE: {movie.release_date}</small>
-				</p>
-				<p>
-					<small>Rating: {movie.vote_average}</small>
-				</p>
-				<p className='card--desc'>{movie.overview}</p>
-			</div>
-		</div>
-	);
+    const addMovie = async (e) => {
+        e.preventDefault();
+        console.log("submitting");
+
+        const TMDBurl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=682ff2fe2db75f083462d4622d51c448&language=en-US`;
+        const localUrl = "http://localhost:3000/movies";
+
+        try {
+            const res = await fetch(TMDBurl);
+			const data = await res.json();
+			console.log(data);
+            const poster = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: data.id,
+                    genre: data.genres,
+                    movie_poster: data.poster_path,
+                    release_date: data.release_date,
+                    runtime: data.runtime,
+                    tagline: data.tagline,
+                    title: data.title,
+                    vote_average: data.vote_average,
+                }),
+            };
+            fetch(localUrl, poster)
+                .then((response) => response.json())
+                .then(response => console.log(response));
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    return (
+        <div className="card">
+            <div className="dbButton">
+                <button
+                    onClick={addMovie}
+                    className="Button"
+                    id={movie.id}
+                    type="submit"
+                >
+                    Add Movie to Database
+                </button>
+            </div>
+            <img
+                className="card--image"
+                alt=""
+                src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
+            />
+            <div className="card--content">
+                <h3 className="card--title">{movie.title}</h3>
+                <p>
+                    <small>RELEASE DATE: {movie.release_date}</small>
+                </p>
+                <p>
+                    <small>Rating: {movie.vote_average}</small>
+                </p>
+                <p className="card--desc">{movie.overview}</p>
+            </div>
+        </div>
+    );
 }
