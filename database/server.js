@@ -1,19 +1,22 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const cors = require("cors");
-const express = require("express");
+const cors = require('cors');
+const express = require('express');
 const app = express();
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 const db = mongoose.connection;
-db.on("error", (error) => console.error(error));
-db.once("open", () => console.log("Connected to Database"));
+db.on('error', (error) => console.error(error));
+db.once('open', () => console.log('Connected to Database'));
 
 app.use(cors());
 app.use(express.json());
 
-const moviesRouter = require("./routes/movies");
-app.use("/movies", moviesRouter);
+const moviesRouter = require('./routes/movies');
+app.use('/movies', moviesRouter);
 
-app.listen(3000, () => console.log("Server Started"));
+app.listen(3000, () => console.log('Server Started'));
