@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const movieSchema = new mongoose.Schema({
     genre: {
-        type: String,
+        type: Array,
         required: true
     },
     movie_poster: {
@@ -10,7 +10,7 @@ const movieSchema = new mongoose.Schema({
         required: true
     },
     release_date: {
-        type: Number,
+        type: String,
         required: true
     },
     runtime: {
