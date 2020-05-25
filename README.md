@@ -1,21 +1,34 @@
+
+## APIs used
+
+* [TMDB]([OMDBapi.com](https://www.themoviedb.org/documentation/api)) for movie metadata
+
+## Dependencies
+
+* [carousel](https://www.npmjs.com/package/react-responsive-carousel)
+
+### Austin
+* Front end design
+
+### Brian
+* Database implementation
+
+### Chris
+* Dependencies
+  * carousel
+* Search movie functionality
+
 ## TODO:
 
-* movie database
-  * local
-  * Flesh it out with the API
-    * Api pull with file name or local metadata?
- 
+* Attaching movie metadata to a local file.
+
 * front-end
   * Movie Covers
-  * React
   * [video JS](https://videojs.com/city)
-  * [carousel](https://www.npmjs.com/package/react-responsive-carousel)
   
 * backend
-  * python
+  * Node
   * MongoDB
-
-## Things to add
 
 * play random movie
   * with search paramaters
@@ -27,15 +40,3 @@
   * actor
   * year
   * etc.
-
-* [OMDB](OMDBapi.com) for movie metadata
-
-### Austin
-* Front end design
-
-### Brian
-* Database implementation
-
-### Chris
-* Dependencies
-  * carousel
