@@ -13,7 +13,7 @@ export default function MovieCard({ movie }) {
 		try {
 			const res = await fetch(TMDBurl);
 			const data = await res.json();
-			console.log(data);
+
 			const poster = {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -42,7 +42,7 @@ export default function MovieCard({ movie }) {
 				<button
 					onClick={addMovie}
 					className='Button'
-					id={movie.id}
+					// id={movie.id}
 					type='submit'>
 					Add Movie to Database
 				</button>
