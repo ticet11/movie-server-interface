@@ -6,6 +6,7 @@ export default class Header extends Component {
         return (
             <div className="header">
                 <Link to="/">Home</Link> |{" "}
+                <Link to="/allmovies">All Movies</Link> |{" "}
                 <Link to="/addmovie">Add a Movie</Link>
                 {/* <ul>
                     <li>

@@ -25,7 +25,7 @@ export default function SearchMovie(card) {
 		<div className='container'>
 			<form className='form' onSubmit={searchMovies}>
 				<label className='label' htmlFor='query'>
-					Movie Name
+					Movie Title
 				</label>
 				<input
 					className='input'
