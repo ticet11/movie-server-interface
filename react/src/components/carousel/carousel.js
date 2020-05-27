@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ButtonBack,
   ButtonFirst,
@@ -13,55 +13,41 @@ import {
 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
+export default Carousel = () => {
+  const [movies, setMovies] = useState([])
 
+  useEffect(() => {
+    getMovies()
+  }, [])
 
-export default () => (
-  <CarouselProvider
-    visibleSlides={5}
-    totalSlides={11}
-    naturalSlideWidth={250}
-    naturalSlideHeight={350}
-  >
+  const getMovies = () => {
+    // get the movies via axios or fetch
+    // then => setMovies(response)
+  }
 
-    <Slider>
-      <Slide index={0}>
-        <Image src="/assets/airplane.jpg" />
+  const renderMovies = () => {
+    movies.map((movie, idx) => {
+      <Slide index={idx}>
+        <Image src={`https://www.puturlhere.com/${movie.movie_poster}`} />
       </Slide>
-      <Slide index={1}>
-        <Image src="/assets/harryPotter.jpg" />
-      </Slide>
-      <Slide index={2}>
-        <Image src="/assets/captainAmerica.jpg" />
-      </Slide>
-      <Slide index={3}>
-        <Image src="./assets/closeEncounters.jpg" />
-      </Slide>
-      <Slide index={4}>
-        <Image src="./assets/theLorax.jpg" />
-      </Slide>
-      <Slide index={5}>
-        <Image src="./assets/donnieDarko.jpg" />
-      </Slide>
-      <Slide index={6}>
-        <Image src="/assets/arrival.jpg" />
-      </Slide>
-      <Slide index={7}>
-        <Image src="/assets/babyDriver.jpg" />
-      </Slide>
-      <Slide index={8}>
-        <Image src="./assets/tmnt.jpg" />
-      </Slide>
-      <Slide index={9}>
-        <Image src="./assets/cars.jpg" />
-      </Slide>
-      <Slide index={10}>
-        <Image src="./assets/inception.jpg" />
-      </Slide>
-    </Slider>
-    <ButtonFirst>First</ButtonFirst>
-    <ButtonBack>Back</ButtonBack>
-    <ButtonNext>Next</ButtonNext>
-    <ButtonLast>Last</ButtonLast>
-    <DotGroup dotNumbers />
-  </CarouselProvider>
-);
+    })
+  }
+  return (
+    <CarouselProvider
+      visibleSlides={5}
+      totalSlides={movies.length}
+      naturalSlideWidth={250}
+      naturalSlideHeight={350}
+    >
+
+      <Slider>
+        {renderMovies()}
+      </Slider>
+      <ButtonFirst>First</ButtonFirst>
+      <ButtonBack>Back</ButtonBack>
+      <ButtonNext>Next</ButtonNext>
+      <ButtonLast>Last</ButtonLast>
+      <DotGroup dotNumbers />
+    </CarouselProvider>
+  );
+}
