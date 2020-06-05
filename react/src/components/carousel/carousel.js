@@ -15,8 +15,8 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 
 export default class Carousel extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             movies: [],
@@ -41,22 +41,13 @@ export default class Carousel extends React.Component {
             });
     };
 
-    genreMovieSlides = (genre) =>
-        this.state.movies
-            .filter((movie) => movie.genre[0].name === genre)
-            .map((movie) => {
-                console.log(movie.movie_poster);
-                return (
-                    <Slide key={movie._id} index={movie._id}>
-                        <Image
-                            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.movie_poster}`}
-                        />
-                    </Slide>
-                );
-            });
-
-    allMovieSlides = () =>
-        this.state.movies.map((movie) => {
+    getMovieSlides = () => {
+        const genreMovieArray = this.state.movies.filter((movie) => {
+            return this.props.genre == null
+                ? movie
+                : movie.genre[0].name === this.props.genre;
+              })
+        return genreMovieArray.map((movie) => {
             return (
                 <Slide key={movie._id} index={movie._id}>
                     <Image
@@ -65,6 +56,7 @@ export default class Carousel extends React.Component {
                 </Slide>
             );
         });
+    };
 
     render() {
         return (
@@ -74,7 +66,7 @@ export default class Carousel extends React.Component {
                 naturalSlideWidth={250}
                 naturalSlideHeight={350}
             >
-                <Slider>{this.genreMovieSlides('Action')}</Slider>
+                <Slider>{this.getMovieSlides()}</Slider>
                 <ButtonFirst>First</ButtonFirst>
                 <ButtonBack>Back</ButtonBack>
                 <ButtonNext>Next</ButtonNext>
