@@ -1,5 +1,7 @@
+
 import React from "react";
 import axios from "axios";
+
 import {
     ButtonBack,
     ButtonFirst,
@@ -13,6 +15,7 @@ import {
 } from "pure-react-carousel";
 
 import "pure-react-carousel/dist/react-carousel.es.css";
+
 
 export default class Carousel extends React.Component {
     constructor(props) {
@@ -75,4 +78,5 @@ export default class Carousel extends React.Component {
             </CarouselProvider>
         );
     }
+
 }
