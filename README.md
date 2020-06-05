@@ -20,7 +20,14 @@
 
 ## TODO:
 
-* Attaching movie metadata to a local file.
+* [x] Attaching movie metadata to a local file.
+
+* [ ] play random movie
+  * with search paramaters
+  
+* [ ] log-in
+  
+## Features:
 
 * front-end
   * Movie Covers
@@ -30,10 +37,6 @@
   * Node
   * MongoDB
 
-* play random movie
-  * with search paramaters
-
-* log-in
 
 * search by:
   * genre
