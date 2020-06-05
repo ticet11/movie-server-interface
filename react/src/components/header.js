@@ -7,7 +7,9 @@ export default class Header extends Component {
             <div className="header">
                 <Link to="/">Home</Link> |{" "}
                 <Link to="/addmovie">Add a Movie</Link>
-                {/* <ul>
+                <nav>
+
+                 <ul>
                     <li>
                         <a href="#library">Library</a>
                     </li>
@@ -20,7 +22,8 @@ export default class Header extends Component {
                     <li>
                         <a href="#search">Search</a>
                     </li>
-                </ul> */}
+                </ul> 
+                </nav>
             </div>
         );
     }
