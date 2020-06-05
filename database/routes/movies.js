@@ -83,7 +83,7 @@ router.delete("/:id", getMovie, async (req, res) => {
 
 async function getMovie(req, res, next) {
     try {
-        movie = await Movie.findById(req.params.id);
+        const movie = await Movie.findById(req.params.id);
         if (movie == null) {
             return res
                 .status(404)
@@ -99,25 +99,8 @@ async function getMovie(req, res, next) {
 
 async function getMoviesByGenre(req, res, next) {
     try {
-        // movies = await Movie.findById(req.params.genre);
 
-        movies = Movie.aggregate([
-            {
-                $project: {
-                    genre: {
-                        $filter: {
-                            input: "$genre",
-                            as: "item",
-                            cond: {
-                                $in: ["$$item.name", "action"],
-                            },
-                        },
-                    },
-                },
-            },
-        ]);
-
-        // movies = Movie.aggregate.match({ genre: { $in: [ "name", "action" ] } });
+        const movies = await Movie.find( { 'movie.genre': 'action' } )
 
         if (movies == null) {
             return res
