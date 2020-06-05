@@ -21,6 +21,7 @@ export default function MovieCard({ movie }) {
           id: data.id,
           genre: data.genres,
           movie_poster: data.poster_path,
+          overview: data.overview,
           release_date: data.release_date,
           runtime: data.runtime,
           tagline: data.tagline,
