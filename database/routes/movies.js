@@ -14,15 +14,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-// Get all by genre
-router.get("/:genre", getMoviesByGenre, (req, res) => {
-    try {
-        res.json(res.movies);
-    } catch (err) {
-        res.status(404).json({ message: err.message });
-    }
-});
-
 // Getting One
 router.get("/:id", getMovie, (req, res) => {
     try {
@@ -83,7 +74,7 @@ router.delete("/:id", getMovie, async (req, res) => {
 
 async function getMovie(req, res, next) {
     try {
-        const movie = await Movie.findById(req.params.id);
+        movie = await Movie.findById(req.params.id);
         if (movie == null) {
             return res
                 .status(404)
@@ -94,24 +85,6 @@ async function getMovie(req, res, next) {
     }
 
     res.movie = movie;
-    next();
-}
-
-async function getMoviesByGenre(req, res, next) {
-    try {
-
-        const movies = await Movie.find( { 'movie.genre': 'action' } )
-
-        if (movies == null) {
-            return res
-                .status(404)
-                .json({ message: "Cannot find movie." });
-        }
-    } catch (err) {
-        return res.status(500).json({ message: err.message });
-    }
-
-    res.movies = movies;
     next();
 }
 
