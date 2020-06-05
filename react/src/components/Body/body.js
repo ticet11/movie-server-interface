@@ -8,15 +8,15 @@ export default class BodyContainer extends Component {
       <div className='CarouselWrapper'>
         <h2>Family Movie Night</h2>
           <div>
-            <Carousel />
+            <Carousel genre='Animation' />
           </div>
-        <h2>New Movies</h2>  
+        <h2>Something Funny</h2>  
           <div>
-            <Carousel />
+            <Carousel genre='Comedy' />
           </div> 
-        <h2>Favorites</h2> 
+        <h2>Action Packed</h2> 
           <div>
-            <Carousel />
+            <Carousel genre='Action' />
           </div>
       </div>
     );
