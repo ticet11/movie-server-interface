@@ -26,6 +26,7 @@ export default function MovieCard({ movie }) {
           tagline: data.tagline,
           title: data.title,
           vote_average: data.vote_average,
+          overview: data.overview,
         }),
       };
       fetch(localUrl, poster)
