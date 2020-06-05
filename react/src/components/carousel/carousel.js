@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import arrowLeft from "../../icons/arrow_left.jpg";
+import arrowRight from "../../icons/arrow_right.jpg";
 
 import {
     ButtonBack,
@@ -68,8 +70,8 @@ export default class Carousel extends React.Component {
             >
                 <Slider>{this.getMovieSlides()}</Slider>
 
-                <ButtonBack>Back</ButtonBack>
-                <ButtonNext>Next</ButtonNext>
+                <ButtonBack><img src={arrowLeft} alt=""/></ButtonBack>
+                <ButtonNext><img src={arrowRight} alt=""/></ButtonNext>
             </CarouselProvider>
         );
     }
