@@ -1,21 +1,16 @@
-
 import React from "react";
 import axios from "axios";
 
 import {
     ButtonBack,
-    ButtonFirst,
-    ButtonLast,
     ButtonNext,
     CarouselProvider,
-    DotGroup,
     Image,
     Slide,
     Slider,
 } from "pure-react-carousel";
 
 import "pure-react-carousel/dist/react-carousel.es.css";
-
 
 export default class Carousel extends React.Component {
     constructor(props) {
@@ -48,8 +43,10 @@ export default class Carousel extends React.Component {
         const genreMovieArray = this.state.movies.filter((movie) => {
             return this.props.genre == null
                 ? movie
-                : movie.genre[0].name === this.props.genre;
-              })
+                : movie.genre.some(
+                      (item) => item.name === this.props.genre
+                  );
+        });
         return genreMovieArray.map((movie) => {
             return (
                 <Slide key={movie._id} index={movie._id}>
@@ -70,13 +67,10 @@ export default class Carousel extends React.Component {
                 naturalSlideHeight={350}
             >
                 <Slider>{this.getMovieSlides()}</Slider>
-                <ButtonFirst>First</ButtonFirst>
+
                 <ButtonBack>Back</ButtonBack>
                 <ButtonNext>Next</ButtonNext>
-                <ButtonLast>Last</ButtonLast>
-                <DotGroup dotNumbers />
             </CarouselProvider>
         );
     }
-
 }
