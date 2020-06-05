@@ -11,6 +11,9 @@ export default class Header extends Component {
                 <nav>
 
                  <ul>
+                 <li>
+                        <a href="#home">Home</a>
+                    </li>
                     <li>
                         <a href="#library">Library</a>
                     </li>
@@ -23,6 +26,7 @@ export default class Header extends Component {
                     <li>
                         <a href="#search">Search</a>
                     </li>
+                    
                 </ul> 
                 </nav>
             </div>
