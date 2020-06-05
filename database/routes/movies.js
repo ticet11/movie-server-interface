@@ -74,10 +74,15 @@ router.delete("/:id", getMovie, async (req, res) => {
 });
 
 async function getMovie(req, res, next) {
-
-    }
+  try {
+      movie = await Movie.findById(req.params.id);
+      if (movie == null) {
+          return res
+              .status(404)
+              .json({ message: "Cannot find movie." });
+      }
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+      return res.status(500).json({ message: err.message });
   }
 
   res.movie = movie;
