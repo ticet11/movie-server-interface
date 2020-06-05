@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../Style/card.css';
+import '../../Style/card.scss';
 
 export default function MovieCard({ movie }) {
 	const addMovie = async (e) => {

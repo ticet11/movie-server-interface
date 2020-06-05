@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
 
-import './Style/App.css';
+
 import Header from './components/header';
 import Body from './components/Body/body';
 import AllMovies from './pages/AllMovies';
 import AddMovie from './pages/AddMovie';
+import "./Style/main.scss"
 
 class App extends Component {
 	render() {
