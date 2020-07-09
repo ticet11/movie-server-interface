@@ -5,6 +5,13 @@ const movieSchema = new mongoose.Schema({
     type: Array,
     required: true,
   },
+<<<<<<< HEAD
+=======
+  location: {
+    type: String,
+    required: true
+  },
+>>>>>>> d32a7ed... api-playground
   movie_poster: {
     type: String,
     required: true,

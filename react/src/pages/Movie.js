@@ -1,36 +1,47 @@
-import React, { Component } from "react";
+// TODO: Get props to populate state.
 
-export default class Movie extends Component {
-    constructor(props) {
-        super(props);
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-        this.state = {
-            movie: {},
-        };
-    }
+const Movie = (props) => {
+    const [currentId, setCurrentId] = useState(
+        props.match.params.slug
+    );
+    const [movie, setMovie] = useState({});
 
-    componentDidMount = () => {
-        this.getMovie();
+    const handleClick = () => {
+        const video = document.querySelector("video");
+        video.load();
     };
 
-    getMovie = () => {
+    useEffect(() => getMovie(), [])
+
+    const getMovie = () => {
         axios
-            .get(
-                `http://localhost:3000/movies/5ecbfbf37e6f4d3988351801`
+            .get(`http://localhost:3000/movies/${currentId}`)
+            .then(
+                (response) => console.log(response.data)
             )
-            .then((response) => {
-                this.setState({
-                    movies: response.data,
-                });
-                console.log(response);
-            })
-            .then()
             .catch((error) => {
                 console.error("getmovies error", error);
             });
     };
 
-    render() {
-        return <div></div>;
-    }
-}
+    return (
+        <div>
+            <h1>{movie.title}</h1>
+            <video width="640" height="480" controls>
+                <source
+                    src={movie.location}
+                    type="video/mp4"
+                />
+                Your browser does not support the video tag.
+            </video>
+            <button onClick={() => handleClick()}>
+                Reload Video
+            </button>
+        </div>
+    );
+};
+
+export default Movie;
