@@ -27,10 +27,7 @@ router.get("/:id", getMovie, (req, res) => {
 router.post("/", async (req, res) => {
   const movie = new Movie({
     genre: req.body.genre,
-<<<<<<< HEAD
-=======
     location: req.body.location,
->>>>>>> d32a7ed... api-playground
     movie_poster: req.body.movie_poster,
     release_date: req.body.release_date,
     runtime: req.body.runtime,

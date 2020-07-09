@@ -4,11 +4,8 @@ import "../../Style/card.scss";
 
 export default function MovieCard({ movie }) {
   const addMovie = async (e) => {
-<<<<<<< HEAD
-=======
     const location = prompt('Where is this movie?', '../assets/video/train.mp4')
 
->>>>>>> d32a7ed... api-playground
     e.preventDefault();
     console.log("submitting");
 
@@ -25,10 +22,7 @@ export default function MovieCard({ movie }) {
         body: JSON.stringify({
           id: data.id,
           genre: data.genres,
-<<<<<<< HEAD
-=======
           location: location,
->>>>>>> d32a7ed... api-playground
           movie_poster: data.poster_path,
           overview: data.overview,
           release_date: data.release_date,
