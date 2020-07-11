@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { Component } from "react";
 
 import Header from "./components/header";
-import Body from "./components/Body/body";
+import Carousel from './components/carousel/carousel';
 import AllMovies from "./pages/AllMovies";
 import AddMovie from "./pages/AddMovie";
 import Movie from './pages/Movie';
