@@ -34,7 +34,20 @@ class App extends Component {
 
 const Home = () => (
   <div>
-    <Body />
+    <div className='CarouselWrapper'>
+        <h2>Family Movie Night</h2>
+          <div>
+            <Carousel genre='Animation' />
+          </div>
+        <h2>Something Funny</h2>  
+          <div>
+            <Carousel genre='Comedy' />
+          </div> 
+        <h2>Action Packed</h2> 
+          <div>
+            <Carousel genre='Action' />
+          </div>
+      </div>
   </div>
 );
 export default App;
