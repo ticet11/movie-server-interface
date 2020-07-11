@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 import arrowLeft from "../../icons/arrow_left.jpg";
 import arrowRight from "../../icons/arrow_right.jpg";
 
@@ -52,9 +54,11 @@ export default class Carousel extends React.Component {
         return genreMovieArray.map((movie) => {
             return (
                 <Slide key={movie._id} index={movie._id}>
-                    <Image
-                        src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.movie_poster}`}
-                    />
+                    <Link to={`/movie/${movie._id}`}>
+                        <Image
+                            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.movie_poster}`}
+                        />
+                    </Link>
                 </Slide>
             );
         });
@@ -70,8 +74,12 @@ export default class Carousel extends React.Component {
             >
                 <Slider>{this.getMovieSlides()}</Slider>
 
-                <ButtonBack><img src={arrowLeft} alt=""/></ButtonBack>
-                <ButtonNext><img src={arrowRight} alt=""/></ButtonNext>
+                <ButtonBack>
+                    <img src={arrowLeft} alt="" />
+                </ButtonBack>
+                <ButtonNext>
+                    <img src={arrowRight} alt="" />
+                </ButtonNext>
             </CarouselProvider>
         );
     }
