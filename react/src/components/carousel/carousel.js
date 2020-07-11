@@ -74,11 +74,11 @@ export default class Carousel extends React.Component {
             >
                 <Slider>{this.getMovieSlides()}</Slider>
 
-                <ButtonBack>
+                <ButtonBack className="carousel-arrow">
                     <img src={arrowLeft} alt="" />
                 </ButtonBack>
 
-                <ButtonNext>
+                <ButtonNext className="carousel-arrow">
                     <img src={arrowRight} alt="" />
                 </ButtonNext>
             </CarouselProvider>
