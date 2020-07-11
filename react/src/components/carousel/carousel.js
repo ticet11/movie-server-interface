@@ -77,6 +77,7 @@ export default class Carousel extends React.Component {
                 <ButtonBack>
                     <img src={arrowLeft} alt="" />
                 </ButtonBack>
+
                 <ButtonNext>
                     <img src={arrowRight} alt="" />
                 </ButtonNext>
