@@ -1,3 +1,5 @@
+// TODO: figure out how to make the carousel number of slides dynamic with what's returned for genre movies
+
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -67,17 +69,19 @@ export default class Carousel extends React.Component {
     render() {
         return (
             <CarouselProvider
-                visibleSlides={5}
-                totalSlides={this.state.movies.length}
                 naturalSlideWidth={250}
                 naturalSlideHeight={350}
+                step={5}
+                totalSlides={this.state.movies.length}
+                visibleSlides={5}
             >
                 <Slider>{this.getMovieSlides()}</Slider>
 
-                <ButtonBack>
+                <ButtonBack className="carousel-arrow">
                     <img src={arrowLeft} alt="" />
                 </ButtonBack>
-                <ButtonNext>
+
+                <ButtonNext className="carousel-arrow">
                     <img src={arrowRight} alt="" />
                 </ButtonNext>
             </CarouselProvider>
