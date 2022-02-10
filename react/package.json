@@ -9,7 +9,7 @@
     "axios": "^0.21.2",
     "express": "^4.17.1",
     "mongoose": "^5.9.14",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "pure-react-carousel": "^1.27.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
